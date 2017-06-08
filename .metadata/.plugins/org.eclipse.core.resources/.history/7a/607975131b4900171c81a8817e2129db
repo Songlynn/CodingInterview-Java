@@ -1,0 +1,30 @@
+
+public class Solution {
+	//Definition for binary tree
+	public class TreeNode {
+	    int val;
+	    TreeNode left;
+	    TreeNode right;
+	    TreeNode(int x) { val = x; }
+	}
+    public TreeNode reConstructBinaryTree(int [] pre,int [] in) {
+        if(pre==null||in==null||pre.length!=in.length)
+        	return null;
+        return ConstructTree(pre,0,pre.length-1,in,0,in.length-1);
+    }
+    public TreeNode ConstructTree(int[] pre,int spre,int epre,int[] in,int sin,int ein){
+    	TreeNode root = new TreeNode(pre[spre]);
+    	root.left=root.right=null;
+    	if(spre==epre)
+    		return root;
+    	int rootIndex=sin;
+    	for(int i=sin;i<=ein;i++){
+    		if(in[i]==root.val){
+    			rootIndex=i;
+    			break;
+    		}
+    			
+    	}
+    	
+    }
+}
